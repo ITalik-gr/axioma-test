@@ -20,16 +20,21 @@ export default function Posts() {
 
   const [isActivePopup, setIsActivePopup] = useState(false);
 
-  const openPopup = (post) => {
+  const openPopup = (post: Post) => {
     setIsActivePopup(true);
 
     const popupCard = document.querySelector('.posts-popup__card');
 
     if (popupCard) {
-      popupCard.querySelector('.posts-popup__title').textContent = post.title;
-      popupCard.querySelector('.posts-popup__descr').textContent = post.body;
-      popupCard.querySelector('.posts-popup__user-id span').textContent = post.userId;
-      popupCard.querySelector('.posts-popup__id span').textContent = post.id;
+      const titleElement = popupCard.querySelector('.posts-popup__title');
+      const descrElement = popupCard.querySelector('.posts-popup__descr');
+      const userIdElement = popupCard.querySelector('.posts-popup__user-id span');
+      const idElement = popupCard.querySelector('.posts-popup__id span');
+
+      if (titleElement) titleElement.textContent = post.title;
+      if (descrElement) descrElement.textContent = post.body;
+      if (userIdElement) userIdElement.textContent = post.userId?.toString() || '';
+      if (idElement) idElement.textContent = post.id.toString();
     }
   }
 

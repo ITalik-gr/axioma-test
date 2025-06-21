@@ -1,4 +1,6 @@
+
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import './App.scss'
 import IndexPage from './IndexPage'
 import Posts from './Posts'
@@ -9,8 +11,8 @@ function App() {
     <BrowserRouter>
       <nav className='nav'>
         <ul className="nav-list">
-          <li className="nav-list__item"><a href="/">Home</a></li>
-          <li className="nav-list__item"><a href="/posts">Posts</a></li>
+          <li className="nav-list__item"><Link to="/">Home</Link></li>
+          <li className="nav-list__item"><Link to="/posts">Posts</Link></li>
         </ul>
       </nav>
       <Routes>
